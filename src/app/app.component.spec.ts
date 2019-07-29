@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DashboardModule } from '@piros/dashboard';
+import { RouterModule } from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        DashboardModule
+        DashboardModule,
+        RouterModule
       ]
     }).compileComponents();
   }));
