@@ -4,17 +4,24 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DashboardModule } from '@piros/dashboard';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     DashboardModule,
-    RouterModule.forRoot([
-      
-    ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
