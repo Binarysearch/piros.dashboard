@@ -1,7 +1,4 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-
-<router-outlet></router-outlet>
+<dashboard [content]="content" [config]="config"></dashboard>
+<ng-template #content>
+  <div class="content">Algo de contenido aqui</div>
+</ng-template>

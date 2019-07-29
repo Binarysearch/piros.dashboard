@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DsConfig, TopbarPosition } from '@piros/dashboard';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dashboard';
+
+  config: DsConfig = {
+    routes: [
+      { path: '/', title: 'Home', faIcon: 'fas fa-home' },
+      { path: '/about', title: 'About' },
+      { path: '/login', title: 'Login', topbarPosition: TopbarPosition.RIGHT },
+      { path: '/register', title: 'Register', topbarPosition: TopbarPosition.RIGHT },
+    ]
+  }
+  
 }

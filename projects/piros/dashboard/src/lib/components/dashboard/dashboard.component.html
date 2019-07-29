@@ -1,0 +1,19 @@
+<div class="ds-container f">
+  <div class="ds-topbar f">
+      <div class="ds-topbar-left f">
+          <div class="ds-topbar-link f" *ngFor="let route of leftRoutes">
+              <a routerLink="{{ route.path }}"><span *ngIf="route.faIcon"
+                      class="{{ route.faIcon }}"></span>{{ route.title }}</a>
+          </div>
+      </div>
+      <div class="ds-topbar-right f">
+          <div class="ds-topbar-link f" *ngFor="let route of rightRoutes">
+              <a routerLink="{{ route.path }}"><span *ngIf="route.faIcon"
+                      class="{{ route.faIcon }}"></span>{{ route.title }}</a>
+          </div>
+      </div>
+  </div>
+  <div class="ds-body f">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
+</div>
