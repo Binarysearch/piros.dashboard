@@ -9,6 +9,8 @@ export interface DsRoute {
   title: string;
   faIcon?: string;
   topbarPosition?: TopbarPosition;
+  show?: (route: DsRoute) => boolean;
+  enabled?: (route: DsRoute) => boolean;
 }
 
 export interface DsConfig {

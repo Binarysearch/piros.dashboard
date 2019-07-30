@@ -20,6 +20,9 @@ body{
 .ds-topbar-link:hover {
     background-color:rgba(0 ,0 , 0, 0.1);
 }
+.ds-topbar-link a.active{
+    filter: brightness(0.8);
+}
 .ds-topbar-link a{
     text-decoration: none;
     display: inline-block;

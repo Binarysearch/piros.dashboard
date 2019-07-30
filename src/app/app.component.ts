@@ -14,6 +14,7 @@ export class AppComponent {
       { path: '/about', title: 'About' },
       { path: '/login', title: 'Login', topbarPosition: TopbarPosition.RIGHT },
       { path: '/register', title: 'Register', topbarPosition: TopbarPosition.RIGHT },
+      { path: '/hidden', title: 'Hidden', topbarPosition: TopbarPosition.RIGHT, show: ()=>false },
     ]
   }
   
