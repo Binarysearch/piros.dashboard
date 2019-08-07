@@ -1,23 +1,32 @@
 <div class="ds-container f">
   <div class="ds-topbar f">
-      <div class="ds-topbar-left f">
-        <ng-container *ngFor="let route of leftRoutes">
-            <div class="ds-topbar-link f"  *ngIf="!route.show || route.show()">
-                <a routerLink="{{ route.path }}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span *ngIf="route.faIcon"
-                        class="{{ route.faIcon }}"></span>{{ route.title }}</a>
-            </div>
-        </ng-container>
-      </div>
-      <div class="ds-topbar-right f">
-        <ng-container *ngFor="let route of rightRoutes">
-            <div class="ds-topbar-link f" *ngIf="!route.show || route.show()">
-                <a routerLink="{{ route.path }}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span *ngIf="route.faIcon"
-                        class="{{ route.faIcon }}"></span>{{ route.title }}</a>
-            </div>
-        </ng-container>
-      </div>
+    <div class="ds-topbar-left f">
+      <ng-container *ngFor="let route of leftRoutes">
+        <div class="ds-topbar-link f" *ngIf="!route.show || route.show()">
+          <a *ngIf="route.path" routerLink="{{ route.path }}" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <span *ngIf="route.faIcon" class="{{ route.faIcon }}">
+            </span>{{ route.title }}</a>
+          <a *ngIf="!route.path && route.onClick" (click)="route.onClick(route)">
+            <span *ngIf="route.faIcon" class="{{ route.faIcon }}">
+            </span>{{ route.title }}</a>
+
+        </div>
+      </ng-container>
+    </div>
+    <div class="ds-topbar-right f">
+      <ng-container *ngFor="let route of rightRoutes">
+        <div class="ds-topbar-link f" *ngIf="!route.show || route.show()">
+          <a *ngIf="route.path" routerLink="{{ route.path }}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span
+              *ngIf="route.faIcon" class="{{ route.faIcon }}"></span>{{ route.title }}</a>
+          <a *ngIf="!route.path && route.onClick" (click)="route.onClick(route)">
+            <span *ngIf="route.faIcon" class="{{ route.faIcon }}">
+            </span>{{ route.title }}</a>
+        </div>
+      </ng-container>
+    </div>
   </div>
   <div class="ds-body f">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
   </div>
 </div>

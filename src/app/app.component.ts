@@ -11,9 +11,9 @@ export class AppComponent {
   config: DsConfig = {
     routes: [
       { path: '/', title: 'Home', faIcon: 'fas fa-home' },
-      { path: '/about', title: 'About' },
+      { title: 'About', onClick: (route) => console.log(route) },
       { path: '/login', title: 'Login', topbarPosition: TopbarPosition.RIGHT },
-      { path: '/register', title: 'Register', topbarPosition: TopbarPosition.RIGHT },
+      { title: 'Register', topbarPosition: TopbarPosition.RIGHT, onClick: (route) => console.log(route) },
       { path: '/hidden', title: 'Hidden', topbarPosition: TopbarPosition.RIGHT, show: ()=>false },
     ]
   }
