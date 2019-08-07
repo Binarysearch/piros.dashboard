@@ -5,12 +5,13 @@ export enum TopbarPosition {
   RIGHT = 'RIGHT'
 }
 export interface DsRoute {
-  path: string;
+  path?: string;
   title: string;
   faIcon?: string;
   topbarPosition?: TopbarPosition;
   show?: (route: DsRoute) => boolean;
   enabled?: (route: DsRoute) => boolean;
+  onClick?: (route: DsRoute) => void;
 }
 
 export interface DsConfig {
