@@ -69,6 +69,26 @@ pipeline {
                 }
             }
         }
+        stage('Compodoc') {
+            when {
+                expression {
+                    return env.BRANCH_NAME == env.TAG_NAME
+                } 
+            }
+            steps {
+                script {
+                    sh 'npm install -g @compodoc/compodoc'
+                    sh 'cd ./projects/piros/dashboard/ && compodoc -p tsconfig.lib.json -d ./docs/'
+                    withCredentials([string(credentialsId: 'docker-password', variable: 'DOCKER_PASS')]) {
+                        sh 'docker login --username=${DOCKER_USER} --password=${DOCKER_PASS}'
+                    }
+                    sh 'docker build --rm -f Dockerfile.docs -t binarysearch/piros-dashboard-compodoc:dev .'
+                    sh 'docker push binarysearch/piros-dashboard-compodoc:dev'
+                    sh 'docker container rm piros-dashboard-compodoc-dev -f || true'
+                    sh 'docker run -d --network=dev_enviroment_default --network-alias=piros-dashboard-compodoc-dev --name=piros-dashboard-compodoc-dev binarysearch/piros-dashboard-compodoc:dev'
+                }
+            }
+        }
 
     }
 }
